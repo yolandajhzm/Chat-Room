@@ -1,6 +1,10 @@
 //source
 //https://codingdict.com/questions/76847
 //https://segmentfault.com/a/1190000011538416
+//https://github.com/socketio/socket.io
+//https://www.scaleway.com/en/docs/tutorials/socket-io/
+//https://socket.io/docs/v3/emitting-events/
+//https://ably.com/topic/socketio
 
 const socketIO = require('socket.io');
 const {saveChatMessage} = require('./controller/chat');
