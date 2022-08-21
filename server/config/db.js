@@ -4,7 +4,7 @@ const MYSQL_CONF = {
     password: 'Tang!@#$',
     port: '3306',
     database: 'chat'
-  }
+  };
   
   
-  module.exports = MYSQL_CONF
+  module.exports = MYSQL_CONF;
