@@ -16,7 +16,7 @@ const usersChat = require('./routes/chat');
 app.use('/', express.static(path.join(__dirname, '../www')));
 new IO(http);
 
-app.use(expressJWT({ credentialsRequired: false, secret: secretKey }).unless({ path: [/^\/api\/user\//] }));
+app.use(expressJWT({credentialsRequired: false, secret: secretKey}).unless({path: [/^\/api\/user\//]}));
 
 app.use(bodyParser.json());
 app.use('/api/user', userRouter);

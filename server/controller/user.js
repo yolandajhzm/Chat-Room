@@ -24,7 +24,7 @@ function login(username, password) {
 
 //register btn function
 function register(username, password) {
-    return findUserName(username, password).then(userRows=>{
+    return findUserName(username).then(userRows=>{
         if(userRows.length){
             return {message: 'Existing username'}; //account already exists
         } else{
