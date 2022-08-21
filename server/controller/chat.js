@@ -1,8 +1,8 @@
 const {exec, escape} = require('../db/index');
 
 //save chat messages to database using exec(sql) function
-function saveChatMessage(msg, username){
-    const sql = `insert into chatmsg (message, username) value('${msg}', '${username}');`;
+function saveChatMessage(message, username){
+    const sql = `insert into chatmsg (message, username) value('${message}', '${username}');`;
     return exec(sql).then(res=>{
         return res;
     })
