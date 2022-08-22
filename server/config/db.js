@@ -6,5 +6,4 @@ const MYSQL_CONF = {
     database: 'chat'
   };
   
-  
   module.exports = MYSQL_CONF;

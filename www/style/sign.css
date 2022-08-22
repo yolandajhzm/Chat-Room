@@ -1,0 +1,71 @@
+.user-signin{
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.sign-form{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: -50px;
+    padding:10px 25px;
+}
+.sign-form .title{
+    color: rgb(65, 65, 65);
+    font-size: 23px;
+    text-align: center;
+}
+.sign-container{
+    color: rgb(65, 65, 65);
+    font-size: 14px;
+}
+.sign-line{
+    padding: 12px 0;
+}
+.sign-line .sign-lable{
+    display: block;
+    text-align: left;
+    margin-bottom: 6px;
+    box-sizing: border-box;
+}
+.sign-line .sign-input{
+    font-size: 14px;
+    line-height: 40px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgb(99, 99, 99);
+    padding: 0 8px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background: #eaf2ff;
+}
+.sign-a{
+    color: rgb(153, 153, 153);
+    text-align: right;
+    display: block;
+    text-decoration: underline;
+    margin-right: 8px;
+    cursor: pointer;
+}  
+.sign-btn-wrapper{
+    display: flex;
+}
+.sign-btn.sign-login{
+    margin-right: 10px;
+}
+.sign-btn{
+    font-size: 16px;
+    color: #ffffff;
+    display: block;
+    flex: 1;
+    height: 35px;
+    text-align: center;
+    margin: 15px auto;
+    border: none;
+    border-radius: 5px;
+    background: #2c7bfc;
+    cursor: pointer;
+}
+.sign-btn:disabled{
+    background: #77a3d6;
+}

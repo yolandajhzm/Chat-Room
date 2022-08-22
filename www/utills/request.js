@@ -1,18 +1,10 @@
-const whiteLists = ['/api/user/login', '/api/user/register'];
+//source
+//https://www.sitepoint.com/use-jquerys-ajax-function/
 
 function ajax(url, option = {method: 'GET'}) {
     const xhr = new XMLHttpRequest();
-    xhr.open(option.method. url, true);
+    xhr.open(option.method, url, true);
     xhr.setRequestHeader('Content-type', 'application/json');
-    if(whiteLists.indexOf(url) < 0) {
-        const token = localStorage.getItem('token');
-        if(!token){
-            navigatetoSign();
-            return;
-        } else {
-            xhr.setRequestHeader('Authorization', token);
-        }
-    }
     xhr.onreadystatechange = function() {
         if(xhr.readyState === 4) {
             if(xhr.status >= 200 && xhr.status < 300) {
@@ -22,9 +14,9 @@ function ajax(url, option = {method: 'GET'}) {
                     if(res.status === 401) {
                         navigatetoSign();
                     }
-                } catch(error) {
+                } catch(err) {
                     navigatetoSign();
-                    console.log(error);
+                    console.log(err);
                 }
             }
         }
@@ -42,3 +34,6 @@ function navigatetoSign(){
         window.location.href = '/sign.html';
     }
 }
+
+
+

@@ -36,20 +36,15 @@ class IO extends IOuser {
 
   onLogin(socket) {
     socket.on('login', (user)=>{ //listen to login event, corresponding code ../www/js/index.js
-      if(this.users.indexOf(user.name) > -1) { //check for repeat login
-        socket.emit('loginError', user, this.usersInfo); //sending to sender-client only
-        socket.nickName = user.name;
-      } else{ //login successfully
-        this.saveUser(user);
-        socket.emit('loginSuccess', user, this.usersInfo);
-        socket.nickName = user.name;
-        this.io.emit('system', {name: user.name, success: 'enter'}); //sending to all clients, include sender
-      }
+      this.saveUser(user);
+      socket.nickName = user.name;
+      this.io.emit('system', {name: user.name, success: 'enter'}); //sending to all clients, include sender
+      
     })
   }
 
   onSendMsg(socket) {
-    socket.on('sendMsg', (data)=>{ //listen to sendMsg event, corresponding code ../www/js/index.js
+    socket.on('sendMsg', data=>{ //listen to sendMsg event, corresponding code ../www/js/index.js
       const params = createReceiveMsgParams(data);
       socket.broadcast.emit('receiveMsg', params); //emit to everyone but socket
       socket.emit('receiveMsg', params); //emit to socket
@@ -65,3 +60,6 @@ function createReceiveMsgParams(data) {
 module.exports = {
   IO
 };
+
+
+

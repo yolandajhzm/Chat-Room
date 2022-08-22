@@ -4,12 +4,15 @@
   "description": "FSE Chat Room",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "nodemon ./server/index.js"
   },
   "author": "Huizhuoma Jiang",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "express": "^4.18.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.19",
     "socket.io": "^4.5.1"
   }
 }

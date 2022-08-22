@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+  <link rel="stylesheet" href="./style/base.css">
+  <link rel="stylesheet" href="./style/sign.css">
+  <title>login/register</title>
+</head>
+<body>
+  <div class="user-signin">
+    <div id="msgTip" class="msg-tip">www</div>
+    <form action="" class="sign-form">
+      <div class="title">FSE Chat Room</div>
+      <div class="sign-container">
+        <div class="sign-line">
+          <label class="sign-lable">Username</label>
+          <input id="username" class="sign-input" type="text" placeholder="username" ></input>
+        </div>
+        <div class="sign-line">
+          <label class="sign-lable">Password</label>
+          <input id="password" class="sign-input" type="password" placeholder="password"></input>
+        </div>
+        <div class="sign-btn-wrapper">
+          <button type="button" id="loginBtn" class="sign-btn sign-login">Login</button>
+          <button type="button" id="registerBtn" class="sign-btn">Register</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <script src="./utills/index.js"></script>
+  <script src="./utills/request.js"></script>
+  <script src="./js/user.js"></script>
+  <script>
+    const loginBtn = document.getElementById('loginBtn');
+    const registerBtn = document.getElementById('registerBtn');
+    const usernameNode = document.getElementById('username');
+    const passwordNode = document.getElementById('password');
+    init();
+    function init(){
+      setBtnDisabled();
+    }
+
+
+    function setBtnDisabled(){
+      const isDisabled = !usernameNode.value || !passwordNode.value;
+      loginBtn.disabled = isDisabled;
+      registerBtn.disabled = isDisabled;
+    }
+
+    let username = '';
+    let password = '';
+    usernameNode.addEventListener('input', function(){
+      username = usernameNode.value;
+      setBtnDisabled();
+    })
+    passwordNode.addEventListener('input', function(){
+      password = passwordNode.value;
+      setBtnDisabled();
+    })
+
+
+    // handle login / register
+    loginBtn.addEventListener('click', handleLogin);
+    registerBtn.addEventListener('click', handleRegister);
+
+    const user = new User();
+    function handleLogin(){
+      user.login({ username, password });
+    }
+    function handleRegister(){
+      user.register({username, password });
+    }
+  </script>
+</body>
+</html>

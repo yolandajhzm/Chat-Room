@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1 viewport-fit=cover">
+  <title>chating</title>
+  <link rel="stylesheet" href="./style/base.css">
+  <link rel="stylesheet" href="./style/index.css">
+</head>
+<body>
+  <div class="all">
+    <div class="nav-header">
+      <p class="nav-header__title">FSE Chat Room</p>
+      <button id="logOut" class="log-up">Logout</button>
+    </div>
+    <div class="main">
+      <div id="container">
+        <div class="conversation">
+            <ul id="messages"></ul>
+            <form class="msg-form" action="">
+                <div class="message-textarea">
+                <textarea id="m"></textarea>
+                </div>
+                <div class="msg-btn-wrapper">
+                  <button class="btn rBtn" type="button" id="sendBtn">Post</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <div class="alert-Mask" id="alert">
+    <div class="alert-box">
+      <p>Account successfully created</p>
+      <button id="alertBtn">ok</button>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="./utills/index.js"></script>
+  <script src="./utills/request.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./js/user.js"></script>
+  <script>
+    const user = new User();
+    user.connectChat();
+
+    const sendBtn = document.getElementById('sendBtn');
+    document.addEventListener('keydown', function(){
+        if (event.keyCode == 13) { //if press 'enter'
+            user.sendMsg();
+            event.returnValue = false;
+            return false;
+        }
+    })
+    sendBtn.addEventListener('click', ()=>{
+        user.sendMsg();
+    })
+
+    // log out
+    const logOutBtn = document.getElementById('logOut')
+    logOutBtn.addEventListener('click', ()=>{
+      user.logOut()
+    })
+  </script>
+</body>
+</html>

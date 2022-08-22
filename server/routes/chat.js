@@ -9,6 +9,6 @@ router.get('/list', function(request, response, next) {
     })
 })
 
-module.exports = {
-    router
-};
+module.exports = router;
+
+
